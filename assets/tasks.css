@@ -1,0 +1,135 @@
+/* tasks.css */
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: url('../fon/ChatGPTFon.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  padding: 40px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #ffcc00;
+  text-shadow: 2px 2px #000;
+}
+
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.task-card {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 3px dashed #00ffff;
+  border-radius: 12px;
+  width: 320px;
+  padding: 22px;
+  box-shadow: 6px 6px 0 #1a1a1a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+.task-card h2 {
+  font-size: 14px;
+  color: #00ffcc;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #000;
+}
+
+.task-card p {
+  font-size: 10px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  margin: 10px 0;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.difficulty.easy {
+  color: #66ff66;
+}
+
+.difficulty.medium {
+  color: #ffcc00;
+}
+
+.difficulty.hard {
+  color: #ff4444;
+}
+
+.solve-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #00ccff;
+  color: #000;
+  font-size: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 2px solid #000;
+  font-family: 'Press Start 2P', monospace;
+  transition: background-color 0.3s ease;
+}
+
+.solve-btn:hover {
+  background-color: #00ffcc;
+  color: #000;
+}
+
+/* 🤖 Qalam Bot */
+.qalam-bot {
+position: fixed;
+bottom: 30px;
+right: 30px;
+display: flex;
+align-items: center;
+gap: 0px;
+z-index: 999;
+}
+
+.qalam-bot img {
+  height: 220px; /* немесе 120px */
+  image-rendering: pixelated;
+}
+
+
+.bot-speech {
+background: #0c0c0c;
+color: white;
+padding: 10px 14px;
+border-radius: 12px;
+font-family: 'Press Start 2P', monospace;
+font-size: 9px;
+line-height: 1.4;
+max-width: 240px;
+box-shadow: 0 0 12px rgba(255,255,255,0.1);
+position: relative;
+margin-right: 0px;
+}
+
+.bot-speech::after {
+content: "";
+position: absolute;
+top: 50%;
+left: 100%;
+margin-top: -10px;
+width: 0;
+height: 0;
+border: 6px solid transparent;
+border-left-color: #0c0c0c;
+}
