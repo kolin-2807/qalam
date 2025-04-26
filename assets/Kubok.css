@@ -1,0 +1,10 @@
+.background-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    min-height: 1080px;
+    object-fit: cover; /* чтобы растягивался правильно */
+    z-index: -1; /* чтобы был под всем контентом */
+    pointer-events: none; /* чтобы не мешал кликам */
+}

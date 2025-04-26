@@ -13,3 +13,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.showForm = showForm;
 });
+
+let lastScrollTop = 0;
+const footer = document.querySelector('.footer');
+
+window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Скроллим вниз — скрыть футер
+        footer.classList.add('hidden');
+    } else {
+        // Скроллим вверх — показать футер
+        footer.classList.remove('hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для предотвращения отрицательных значений
+});

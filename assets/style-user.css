@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+a {
+    text-decoration: none;
+}
+
 body {
+    background: url('BacgroundQalam.gif') no-repeat center center fixed;
+    background-size: cover;
     position: relative; 
     font-family: 'Press Start 2P', cursive;
-    background: url('../fon/ChatGPTFon.png') no-repeat center center fixed;
     background-size: cover;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     margin: 0;
     padding: 0;
@@ -14,15 +19,16 @@ body {
 
 /* 🔹 Header */
 .header {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background: #111;
+    background: #2c2c2c;
     padding: 20px 30px;
-    border-bottom: 4px dashed yellow;
+    border-bottom: 6px yellow;
     width: 100%;
     box-sizing: border-box;
 }
+
 
 /* 🔹 Logo */
 .logo {
@@ -37,37 +43,26 @@ body {
     height: 40px;
     transition: transform 0.3s ease-in-out;
 }
-.logo img:hover {
-    transform: rotate(-5deg) scale(1.1);
-}
 
 /* 🔹 Navigation */
-.nav {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    max-width: 60vw;
-}
 
 .nav img {
     width: 48px;
     height: 48px;
     cursor: pointer;
     image-rendering: pixelated;
-    transition: transform 0.2s ease-in-out;
 }
-.nav img:hover {
+.nav img :hover {
     transform: scale(1.2);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0);
 }
 
 /* 🔹 Profile Info */
 .profile {
+    border-radius: 2px;
     font-size: 14px;
     padding: 10px 18px;
     background: #333;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -120,7 +115,7 @@ body {
     background: #0c0c0c;
     color: white;
     padding: 10px 14px;
-    border-radius: 12px;
+    border-radius: 2px;
     font-family: 'Press Start 2P', monospace;
     font-size: 9px;
     line-height: 1.4;
@@ -141,5 +136,229 @@ body {
     border: 6px solid transparent;
     border-left-color: #0c0c0c; /* бабл түсі */
   }
+
+  .course-1 {
+    border-radius: 2px;
+    left: 40px;
+    top: 20px;
+    bottom: 20px;
+    padding: 30px;
+    color: #ffffbb;
+    margin: 20px;
+    background-color: #2c2c2c;
+  }
+
+  .course-container {
+    border-radius: 2px;
+    display: flex;
+    gap: 80px;
+    background-color: #2c2c2c;
+    border: 2px solid #fff;
+    padding: 30px;
+    margin:  10px 20px;
+    max-width: auto;
+}
+
+.course-block {
+    border-radius: 2px;
+    background-color: #404040;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.course-title {
+    border-radius: 2px;
+    font-size: 14px;
+    color: #ffffbb;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    border-radius: 2px;
+    width: 120px;
+    height: 20px;
+    background-color: #666;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    border-radius: 2px;
+    height: 100%;
+    background-color: yellow;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    color: #ffffbb;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+}
+
+.course-description {
+    flex: 1;
+    text-align: left;
+    color: #ffffbb;
+}
+
+.course-description h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
+.course-description p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
   
+  .bolik-one {
+    border-radius: 2px;
+    display: flex;                /* Ставим все в ряд */
+    justify-content: space-between; /* Равномерно распределяем элементы */
+    margin: 0 auto;
+    padding: 0 100px;
+    background-color: #dcdcdc;
+  }
   
+  .plan {
+    text-align: center;        /* Центрируем всё внутри блока */
+  }
+  
+  .plan h3 {
+    margin-bottom: 10px;        /* Отступ после заголовка */
+    font-size: 20px;            /* Размер текста */
+    color: #181818;                /* Цвет текста (можно поменять) */
+  }
+  
+  .plan img {
+    width: 300px;      /* Размер картинок */
+    height: auto;
+  }  
+  
+  .plan p {
+    font-size: 14px;
+    color: #ffffbb;                /* Серый текст описания */
+  }
+  
+
+  .subscriptions-title {
+    background-color: #404040;
+    padding: 20px 0;
+    color: #ffffff;       /* Цвет текста */
+    text-align: center;   /* По центру */
+    margin: 20px 300px 10px;
+  }
+  
+  .burger-menu {
+    right: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.burger-icon {
+    margin-left: 22px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ffffbb;
+}
+
+.burger-content {
+    display: none;
+    flex-direction: column;
+    background: #2c2c2c;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border: 2px solid #ffffbb;
+    z-index: 999;
+}
+
+.burger-content a {
+    margin: 8px 0;
+}
+
+.burger-content img {
+    width: 48px;
+    height: 48px;
+    image-rendering: pixelated;
+    transition: transform 0.2s ease-in-out;
+}
+
+.burger-content img:hover {
+    transform: scale(1.2);
+}
+
+.footer {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 40px 20px;  /* Отступы сверху и снизу, а также по бокам */
+    text-align: center;
+    font-size: 14px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer {
+    background-color: #575757;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Press Start 2P', cursive;
+    transition: transform 0.3s ease;
+}
+
+.footer.hidden {
+    transform: translateY(100%);
+}
+
+
+
+.footer-links {
+    margin-bottom: 30px;  /* Увеличиваем отступ между ссылками и соцсетями */
+}
+
+.footer-links a {
+    margin: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #f1c40f;
+}
+
+.footer-social {
+    margin-top: 20px; /* Добавляем отступ между текстом и иконками соцсетей */
+}
+
+.footer-social a {
+    color: #fff;
+    margin: 0 15px;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+}
