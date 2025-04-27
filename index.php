@@ -27,12 +27,12 @@ function isActiveForm($formName, $activeForm) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full-Stack Login&Register</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style/style.css">
 </head>
 
 <body>
     <div class="img">
-       <img src="/Qalam/register.png" alt="register image" class="form-image">
+       <img src="../assets/images/register.png" alt="register image" class="form-image">
     </div>
     <div class="container">
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
@@ -64,7 +64,7 @@ function isActiveForm($formName, $activeForm) {
         </div>
     </div>
 
-    <script src="assets/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
