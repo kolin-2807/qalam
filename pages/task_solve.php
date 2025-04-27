@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Qalam Solve Task</title>
-  <link rel="stylesheet" href="../style/solve.css">
+  <link rel="stylesheet" href="../assets/style/solve.css">
 </head>
 <body>
   <h1><?= htmlspecialchars($task['title']) ?></h1>

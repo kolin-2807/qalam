@@ -29,26 +29,26 @@ $coins = $user['coins'] ?? 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qalam - 2D ретро платформа</title>
-    <link rel="stylesheet" href="../assets/style-user.css">
+    <link rel="stylesheet" href="../assets/style/style-user.css">
 </head>
 <body>
 <div class="header">
 <div class="burger-menu">
   <div class="burger-icon" onclick="toggleBurgerMenu()">☰</div>
   <div class="burger-content" id="burger-content">
-      <a href="../pages/quest_levels.php"><img src="../assets/navigationimages/SvitokQALAM.png" alt="Courses"></a>
+      <a href="../pages/quest_levels.php"><img src="../assets/images/navigationimages/SvitokQALAM.png" alt="Courses"></a>
       <a href="Kubok.php">
-  <img src="../assets/navigationimages/KubokQALAM.png" alt="League">
+  <img src="../assets/images/navigationimages/KubokQALAM.png" alt="League">
 </a>
-      <a href="#"><img src="../assets/navigationimages/homeQALAM.png" alt="Home"></a>
-      <a href="#"><img src="../assets/navigationimages/MozgQALAM.png" alt="Clubs"></a>
-      <a href="#"><img src="../assets/navigationimages/CherepQALAM.png" alt="Subs"></a>
+      <a href="#"><img src="../assets/images/navigationimages/homeQALAM.png" alt="Home"></a>
+      <a href="#"><img src="../assets/images/navigationimages/MozgQALAM.png" alt="Clubs"></a>
+      <a href="#"><img src="../assets/images/navigationimages/CherepQALAM.png" alt="Subs"></a>
   </div>
 </div>
 
     <div class="logo">
         Qalam 
-        <img src="../assets/navigationimages/LOGOTYPE-QALAM.png" alt="Logo">
+        <img src="../assets/images/navigationimages/LOGOTYPE-QALAM.png" alt="Logo">
     </div>
 
     <div class="profile">
@@ -107,7 +107,7 @@ $coins = $user['coins'] ?? 0;
   <div class="bot-speech" id="bot-speech">
     Code Quest дайын – тек сені күтіп тұр!
   </div>
-  <img src="../assets/bot/Merlin.png" alt="Qalam Bot">
+  <img src="../assets/images/bot/Merlin.png" alt="Qalam Bot">
 </div>
 
 

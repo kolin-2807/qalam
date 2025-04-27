@@ -4,50 +4,7 @@
   <meta charset="UTF-8">
   <title>Level 1 — Көктемгі ауыл</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Press Start 2P', cursive;
-      background: url('../assets/levelOne/springWarrior.png') no-repeat center center fixed;
-      background-size: cover;
-      overflow-x: hidden;
-    }
-
-    .map-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .task-point {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 3px solid #00ccff;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: 8px;
-      color: #000;
-      text-decoration: none;
-      transition: transform 0.3s;
-    }
-
-    .task-point:hover {
-      transform: scale(1.1);
-    }
-
-    .task-point.locked {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      border: 2px dashed #999;
-      cursor: default;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/style/level1map.css">
 </head>
 <body>
 <div class="map-container">

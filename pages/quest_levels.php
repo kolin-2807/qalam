@@ -24,32 +24,32 @@ $level = floor($xp / 100);
 <head>
   <meta charset="UTF-8">
   <title>Quest Levels</title>
-  <link rel="stylesheet" href="../assets/levels.css">
+  <link rel="stylesheet" href="../assets/style/quest-levels.css">
 </head>
 <body>
   <h1 class="title">🧩 QALAM QUEST LEVELS</h1>
 
   <div class="levels-container">
     <div class="level-card <?= $level >= 1 ? 'unlocked' : 'locked' ?>">
-      <img src="../assets/levels/spring.png" alt="Spring">
+      <img src="../assets/images/levels/spring.png" alt="Spring">
       <h3>Level 1 — Көктем</h3>
       <?= $level >= 1 ? '<a href="level1_map.php" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
 
     <div class="level-card <?= $level >= 2 ? 'unlocked' : 'locked' ?>">
-      <img src="../assets/levels/summer.png" alt="Summer">
+      <img src="../assets/images/levels/summer.png" alt="Summer">
       <h3>Level 2 — Жаз</h3>
       <?= $level >= 2 ? '<a href="tasks.php?level=2" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
 
     <div class="level-card <?= $level >= 3 ? 'unlocked' : 'locked' ?>">
-      <img src="../assets/levels/fall.png" alt="Fall">
+      <img src="../assets/images/levels/fall.png" alt="Fall">
       <h3>Level 3 — Күз</h3>
       <?= $level >= 3 ? '<a href="tasks.php?level=3" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
 
     <div class="level-card <?= $level >= 4 ? 'unlocked' : 'locked' ?>">
-      <img src="../assets/levels/winter.png" alt="Winter">
+      <img src="../assets/images/levels/winter.png" alt="Winter">
       <h3>Level 4 — Қыс</h3>
       <?= $level >= 4 ? '<a href="tasks.php?level=4" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
@@ -59,7 +59,7 @@ $level = floor($xp / 100);
     <div class="bot-speech" id="bot-speech">
       Code Quest дайын – тек сені күтіп тұр!
     </div>
-    <img src="../assets/bot/Merlin.png" alt="Qalam Bot">
+    <img src="../assets/images/bot/Merlin.png" alt="Qalam Bot">
   </div>
 
   <script>
@@ -76,12 +76,5 @@ $level = floor($xp / 100);
       document.getElementById("bot-speech").textContent = message;
     });
   </script>
-  <div class="map-container">
-  <a href="task_solve.php?id=1" class="task-point" style="top: 100%; left: 64%;">Hello<br>World</a>
-  <a href="task_solve.php?id=2" class="task-point locked" style="top: 63.5%; left: 24.5%;">Айнымалы</a>
-  <a href="task_solve.php?id=3" class="task-point locked" style="top: 53%; left: 39%;">Қосу</a>
-  <a href="task_solve.php?id=4" class="task-point locked" style="top: 44.5%; left: 56.5%;">Input</a>
-</div>
-
 </body>
 </html>
