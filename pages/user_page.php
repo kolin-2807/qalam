@@ -83,19 +83,19 @@ $coins = $user['coins'] ?? 0;
   
   <div class="plan">
     <h3>Bronze</h3>
-    <img src="/Qalam/Bronze.svg" alt="Bronze">
+    <img src="../assets/images/Bronze.svg" alt="Bronze">
     <p>Самый базовый план: доступ к базовым курсам и форуму.</p>
   </div>
 
   <div class="plan">
     <h3>Silver</h3>
-    <img src="/Qalam/Silver.svg" alt="Silver">
+    <img src="../assets/images/Silver.svg" alt="Silver">
     <p>План с доступом к расширенным курсам и сертификатам.</p>
   </div>
 
   <div class="plan">
     <h3>Gold</h3>
-    <img src="/Qalam/Gold.svg" alt="Gold">
+    <img src="../assets/images/Gold.svg" alt="Gold">
     <p>Полный доступ ко всем курсам, бонусам и персональной поддержке.</p>
   </div>
 
@@ -139,17 +139,7 @@ function toggleBurgerMenu() {
 </script>
 
 
-<div class="footer">
-    <div class="footer-links">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Условия использования</a>
-        <a href="#">Контакты</a>
-    </div>
-    <div class="footer-social">
-        <a href="https://facebook.com" target="_blank"><img src="../assets/social/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://twitter.com" target="_blank"><img src="../assets/social/twitter-icon.png" alt="Twitter"></a>
-        <a href="https://instagram.com" target="_blank"><img src="../assets/social/instagram-icon.png" alt="Instagram"></a>
-    </div>
-</div>
+<?php include '../includes/footer.php'; ?>
+
 </body>
 </html>

@@ -76,5 +76,7 @@ $level = floor($xp / 100);
       document.getElementById("bot-speech").textContent = message;
     });
   </script>
+
+<?php include '../includes/footer.php'; ?>
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="background-gif">
-    <img src="http://localhost/Qalam/BackgroundQalam.gif">
+    <img src="http://localhost/Qalam/assets/images/BackgroundQalam.gif">
 </div>
 </body>
 </html>

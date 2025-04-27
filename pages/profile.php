@@ -145,5 +145,6 @@ $coins = $_SESSION['coins'] ?? 0;
   }
 </script>
 
+<?php include '../includes/footer.php'; ?>
 </body>
 </html>
