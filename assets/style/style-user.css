@@ -5,7 +5,7 @@ a {
 }
 
 body {
-    background: url('BacgroundQalam.gif') no-repeat center center fixed;
+    background: url('../images/BackgroundQalam.gif') no-repeat center center fixed;
     background-size: cover;
     position: relative; 
     font-family: 'Press Start 2P', cursive;
