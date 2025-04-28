@@ -1,5 +1,5 @@
+<?php include '../includes/header.php'; ?>
 <?php
-session_start();
 require '../config.php';
 
 if (!isset($_SESSION['email'])) {
@@ -24,10 +24,11 @@ $level = floor($xp / 100);
 <head>
   <meta charset="UTF-8">
   <title>Quest Levels</title>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pixel-operator" type="text/css"/>
   <link rel="stylesheet" href="../assets/style/quest-levels.css">
 </head>
 <body>
-  <h1 class="title">🧩 QALAM QUEST LEVELS</h1>
+  <h1 class="title">QALAM QUEST LEVELS</h1>
 
   <div class="levels-container">
     <div class="level-card <?= $level >= 1 ? 'unlocked' : 'locked' ?>">

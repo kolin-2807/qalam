@@ -1,0 +1,104 @@
+/* 🔹 Header */
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background: #2c2c2c;
+    padding: 20px 30px;
+    border-bottom: 6px yellow;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 🔹 Logo */
+.logo {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🔹 Profile Info */
+.profile {
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 10px 18px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #fff;
+}
+
+.profile a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.profile a:hover {
+    color: yellow;
+}
+
+/* 🔹 Burger Menu */
+.burger-menu {
+    right: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.burger-icon {
+    margin-left: 22px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ffffbb;
+}
+
+.burger-content {
+    display: none;
+    flex-direction: column;
+    background: #2c2c2c;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border: 2px solid #ffffbb;
+    z-index: 999;
+}
+
+.burger-content a {
+    margin: 8px 0;
+}
+
+.burger-content img {
+    width: 48px;
+    height: 48px;
+    image-rendering: pixelated;
+    transition: transform 0.2s ease-in-out;
+}
+
+.burger-content img:hover {
+    transform: scale(1.2);
+}
+
+/* 🔥 Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .profile {
+        font-size: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

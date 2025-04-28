@@ -58,7 +58,7 @@ $coins = $user['coins'] ?? 0;
     </div>
 </div>
 
-<h2 class="course-1">Текущий курс</h2>
+<h3 class="course-1">Сіздің курстағы прогресіңіз</h3>
 <div class="course-container">
     <div class="course-block">
         <h3 class="course-title">- Python -</h3>
@@ -69,14 +69,13 @@ $coins = $user['coins'] ?? 0;
     </div>
     
     <div class="course-description">
-        <h3>Code Quest: Beginner</h3>
+        <h4>Code Quest: Beginner</h4>
         <p>Бұл курс бағдарламалаудың ең негізгі ұғымдарын үйретеді. Python тілінде жобалар жасайсың!</p>
     </div>
 </div>
 
-
 <div>
-<h2 class="subscriptions-title">Subscriptions</h2>
+<h3 class="subscriptions-title">Subscriptions</h3>
 </div>
 
 <div class="bolik-one">

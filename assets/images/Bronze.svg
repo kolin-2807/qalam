@@ -2084,4 +2084,8 @@
 <rect x="370" y="490" width="10" height="10" fill="#2C2C2C" />
 <rect x="380" y="490" width="10" height="10" fill="#2C2C2C" />
 <rect x="390" y="490" width="10" height="10" fill="#2C2C2C" />
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+  <title>Описание изображения</title>
+  <!-- Остальное содержимое SVG -->
+</svg>
 </svg>

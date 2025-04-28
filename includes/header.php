@@ -1,104 +1,71 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+// includes/header.php
+
+session_start();
+require '../config.php'; // Базамен байланыс
+
+if (!isset($_SESSION['email'])) {
+    header("Location: ../index.php");
+    exit();
 }
 
-$name = htmlspecialchars($_SESSION['name'] ?? 'Qonaq');
-$xp = $_SESSION['xp'] ?? 0;
-$coins = $_SESSION['coins'] ?? 0;
+$email = $_SESSION['email'];
+
+// Пайдаланушыны базадан алу
+$query = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+$name = htmlspecialchars($user['name'] ?? 'Player');
+$xp = $user['xp'] ?? 0;
+$coins = $user['coins'] ?? 0;
 ?>
 
-<style>
-.header {
-    background: #111;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 30px;
-    border-bottom: 4px dashed yellow;
-    font-family: 'Press Start 2P', cursive;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.header .left-logo,
-.header .nav,
-.header .profile-box {
-    display: flex;
-    align-items: center;
-}
-
-.left-logo img {
-    width: 36px;
-    height: 36px;
-    margin-left: 8px;
-}
-
-.nav {
-    gap: 25px;
-}
-
-.nav a img {
-    width: 40px;
-    height: 40px;
-    image-rendering: pixelated;
-    transition: transform 0.3s ease;
-}
-.nav a img:hover {
-    transform: scale(1.2);
-}
-
-.profile-box {
-    background: #222;
-    border: 2px solid #fff;
-    border-radius: 12px;
-    padding: 8px 14px;
-    gap: 10px;
-    font-size: 12px;
-}
-
-.profile-box a {
-    color: white;
-    text-decoration: none;
-}
-.profile-box a:hover {
-    color: yellow;
-}
-
-.header > * {
-    flex: 1;
-    justify-content: center;
-}
-
-.header .left-logo {
-    justify-content: flex-start;
-}
-
-.header .profile-box {
-    justify-content: flex-end;
-}
-</style>
-
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qalam - 2D ретро платформа</title>
+    <link rel="stylesheet" href="../assets/style/header_css.css">
+</head>
+<body>
 <div class="header">
-    <!-- 🔹 Сол жақ: ЛОГО -->
-    <div class="left-logo">
-        Qalam
-        <img src="../assets/navigationimages/LOGOTYPE-QALAM.png" alt="Qalam Logo">
+  <div class="burger-menu">
+    <div class="burger-icon" onclick="toggleBurgerMenu()">☰</div>
+    <div class="burger-content" id="burger-content">
+      <a href="../pages/quest_levels.php"><img src="../assets/images/navigationimages/SvitokQALAM.png" alt="Courses"></a>
+      <a href="Kubok.php"><img src="../assets/images/navigationimages/KubokQALAM.png" alt="League"></a>
+      <a href="#"><img src="../assets/images/navigationimages/homeQALAM.png" alt="Home"></a>
+      <a href="#"><img src="../assets/images/navigationimages/MozgQALAM.png" alt="Clubs"></a>
+      <a href="#"><img src="../assets/images/navigationimages/CherepQALAM.png" alt="Subs"></a>
+    </div>
+  </div>
+
+  <div class="logo">
+    Qalam 
+    <img src="../assets/images/navigationimages/LOGOTYPE-QALAM.png" alt="Logo">
+  </div>
+
+  <div class="profile">
+     <a href="profile.php">👤 <?= $name ?></a> 
+      | ⭐ <?= $xp ?> XP 
+      | 💰 <?= $coins ?>
     </div>
 
-    <!-- 🔸 Орта: Навигация иконкалар -->
-    <div class="nav">
-        <a href="#"><img src="../assets/navigationimages/SvitokQALAM.png" alt="Courses"></a>
-        <a href="#"><img src="../assets/navigationimages/KubokQALAM.png" alt="League"></a>
-        <a href="#"><img src="../assets/navigationimages/homeQALAM.png" alt="Home"></a>
-        <a href="#"><img src="../assets/navigationimages/MozgQALAM.png" alt="Clubs"></a>
-        <a href="#"><img src="../assets/navigationimages/CherepQALAM.png" alt="Subs"></a>
-    </div>
-
-    <!-- 🔸 Оң жақ: Профиль -->
-    <div class="profile-box">
-        <a href="profile.php">👤 <?= $name ?></a> |
-        ⭐ <?= $xp ?> XP |
-        💰 <?= $coins ?>
-    </div>
+  
 </div>
+
+<script>
+function toggleBurgerMenu() {
+  const content = document.getElementById('burger-content');
+  if (content.style.display === 'flex') {
+    content.style.display = 'none';
+  } else {
+    content.style.display = 'flex';
+  }
+}
+</script>
