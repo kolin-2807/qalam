@@ -28,7 +28,7 @@ $coins = $user['coins'] ?? 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qalam - 2D ретро платформа</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../assets/style/style-user.css">
 </head>
 <body>

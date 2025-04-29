@@ -1,4 +1,5 @@
 /* 🔹 Header */
+
 .header {
     position: relative;
     display: flex;
@@ -17,24 +18,26 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-left: 14px;
 }
 
 .logo img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease-in-out;
+    margin-left: 18px;
+    width: 42px;
+    height: 42px;
+    
 }
 
 /* 🔹 Profile Info */
 .profile {
-    border-radius: 2px;
     font-size: 14px;
     padding: 10px 18px;
-    background: #333;
+    background: #575757;
     display: flex;
     align-items: center;
-    gap: 12px;
-    border: 2px solid #fff;
+    gap: 18px;
+    box-shadow: 0 0 1px #000000;
+    border-radius: 1px;
 }
 
 .profile a {
@@ -50,7 +53,6 @@
 
 /* 🔹 Burger Menu */
 .burger-menu {
-    right: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -76,26 +78,48 @@
     z-index: 999;
 }
 
+/* 🔹 Burger Items Style */
 .burger-content a {
-    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    margin: 12px 0;
+    transition: 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.burger-content a:hover {
+    transform: scale(1.1);
+    color: #ffcc00;
 }
 
 .burger-content img {
     width: 48px;
     height: 48px;
+    margin-bottom: 5px;
     image-rendering: pixelated;
-    transition: transform 0.2s ease-in-out;
 }
 
-.burger-content img:hover {
-    transform: scale(1.2);
+/* 🔔 Notification Bell */
+.notification-bell {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.notification-bell img {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
 }
 
 /* 🔥 Responsive */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
-        gap: 15px;
+        gap: 24px;
     }
     .profile {
         font-size: 12px;

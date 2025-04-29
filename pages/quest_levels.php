@@ -23,7 +23,7 @@ $level = floor($xp / 100);
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Quest Levels</title>
+  <title>Courses</title>
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pixel-operator" type="text/css"/>
   <link rel="stylesheet" href="../assets/style/quest-levels.css">
 </head>
