@@ -1,4 +1,5 @@
-.background-gif {
+.background-png {
+    background: url('../images/backgroundqalam.png') no-repeat center center fixed;
     position: fixed;
     top: 0;
     left: 0;

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    background: url('../images/BackgroundQalam.gif') no-repeat center center fixed;
+  background: url('../images/backgroundqalam.png') no-repeat center center fixed;
     background-size: cover;
     position: relative; 
     font-family: 'Press Start 2P', cursive;
@@ -34,14 +34,14 @@ body {
     width: 220px;
     padding: 16px;
     text-align: center;
-    box-shadow: 4px 4px 0 #1a1a1a;
+    box-shadow: 4px 4px 0 #570000;
     transition: transform 0.3s ease;
     margin-bottom: 200px;
   }
   
   .level-card img {
     width: 100%;
-    border-radius: 3px;
+    border-radius: 2px;
     image-rendering: pixelated;
     margin-bottom: 12px;
   }
@@ -54,11 +54,10 @@ body {
   }
   
   .level-card.unlocked {
-    border-color: #00ffcc;
+    border-color: #2c2c2c;
   }
   
   .level-card.locked {
-    opacity: 0.6;
     position: relative;
   }
   
@@ -75,7 +74,7 @@ body {
     text-decoration: none;
     border: 2px solid #000;
     border-radius: 4px;
-    font-size: 9px;
+    font-size: 8px;
     transition: background-color 0.2s ease;
   }
   
@@ -109,7 +108,7 @@ body {
     font-size: 9px;
     line-height: 1.4;
     max-width: 240px;
-    box-shadow: 0 0 12px rgba(255,255,255,0.1);
+    box-shadow: 0 0 8px #310000;
     position: relative;
     margin-right: 0px;
     }

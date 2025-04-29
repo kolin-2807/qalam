@@ -5,7 +5,7 @@ a {
 }
 
 body {
-    background: url('../images/BackgroundQalam.gif') no-repeat center center fixed;
+    background: url('../images/backgroundqalam.png') no-repeat center center fixed;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -28,6 +28,7 @@ body {
     border-bottom: 6px yellow;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 0 8px #310000;
 }
 
 
@@ -221,13 +222,14 @@ body {
   .bolik-one {
     border-radius: 2px;
     display: flex;                /* Ставим все в ряд */
-    justify-content: space-between; /* Равномерно распределяем элементы */
-    margin: 0 auto;
+    justify-content: space-evenly; /* Равномерно распределяем элементы */
+    margin: 0 20px;
     background-color: #666666;
   }
   
   .plan {
     text-align: center;        /* Центрируем всё внутри блока */
+    justify-content: space-between;
   }
   
   .plan h3 {

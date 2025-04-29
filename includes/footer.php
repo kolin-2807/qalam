@@ -3,8 +3,8 @@
   <div class="footer-top">
 
     <div class="footer-brand">
-      <h1>Qalam</h1>
-      <p>Qalam — бағдарламалау негіздерін үйреніп, алғашқы жобаларыңды жасауды бастайтын орын.</p>
+      <h2>Qalam</h2>
+      <p>Qalam — бағдарламалау негіздерін <br> үйреніп, алғашқы жобаларыңды <br> жасауды бастайтын орын.</p>
 
     </div>
 
@@ -61,6 +61,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 20px;
+}
+
+p {
+  line-height: 2.4;
 }
 
 .footer-brand h1 {

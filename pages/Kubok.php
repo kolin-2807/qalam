@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-<div class="background-gif">
-    <img src="http://localhost/Qalam/assets/images/BackgroundQalam.gif">
+<div class="background-png">
+    <img src="..assets/images/backgroundqalam.png">
 </div>
 </body>
 </html>

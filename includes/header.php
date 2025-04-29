@@ -53,7 +53,7 @@ $coins = $user['coins'] ?? 0;
   <div class="profile">
      <a href="profile.php">👤 <?= $name ?></a> 
       | ⭐ <?= $xp ?> XP 
-      | 💰 <?= $coins ?>
+      | <img src='../images/coinqalam.png' ><?= $coins ?>
     </div>
 
   

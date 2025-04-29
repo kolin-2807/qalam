@@ -83,19 +83,19 @@ $coins = $user['coins'] ?? 0;
   <div class="plan">
     <h3>Bronze</h3>
     <img src="../assets/images/Bronze.svg" alt="Bronze">
-    <p>Самый базовый план: доступ к базовым курсам и форуму.</p>
+    <p>Самый базовый план: <br> доступ к базовым курсам и форуму.</p>
   </div>
 
   <div class="plan">
     <h3>Silver</h3>
     <img src="../assets/images/Silver.svg" alt="Silver">
-    <p>План с доступом к расширенным курсам и сертификатам.</p>
+    <p>План с доступом к расширенным <br> курсам и сертификатам.</p>
   </div>
 
   <div class="plan">
     <h3>Gold</h3>
     <img src="../assets/images/Gold.svg" alt="Gold">
-    <p>Полный доступ ко всем курсам, бонусам и персональной поддержке.</p>
+    <p>Полный доступ ко всем курсам, <br> бонусам и персональной поддержке.</p>
   </div>
 
 </div>
