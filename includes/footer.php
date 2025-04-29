@@ -12,6 +12,7 @@
       <h3>Navigation</h3>
       <ul>
         <li><a href="../pages/quest_levels.php">Courses</a></li>
+        <li><a href="../pages/quest_levels.php">Courses</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Clubs</a></li>
         <li><a href="#">Features</a></li>
