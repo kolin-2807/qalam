@@ -4,23 +4,23 @@
 session_start();
 require '../config.php'; // Базамен байланыс
 
-if (!isset($_SESSION['email'])) {
-    header("Location: ../index.php");
-    exit();
+$email = $_SESSION['email'] ?? null;
+$user = [];
+$name = 'Қонақ';
+$xp = 0;
+$coins = 0;
+
+if ($email) {
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $name = htmlspecialchars($user['name'] ?? 'Player');
+    $xp = $user['xp'] ?? 0;
+    $coins = $user['coins'] ?? 0;
 }
-
-$email = $_SESSION['email'];
-
-// Пайдаланушыны базадан алу
-$query = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
-$name = htmlspecialchars($user['name'] ?? 'Player');
-$xp = $user['xp'] ?? 0;
-$coins = $user['coins'] ?? 0;
 ?>
 
 <!DOCTYPE html>
@@ -54,19 +54,23 @@ $coins = $user['coins'] ?? 0;
   </div>
 
   <div class="profile">
-    <a href="profile.php"> <img src='../assets/images/profileqalamp.png' style='width:18px; height:18px;'> <?= $name ?></a> 
-     <img src='../assets/images/xpqalam.png' style='width:18px; height:18px;'> <?= $xp ?>  
-     <img src='../assets/images/coinqalam.png' style='width:18px; height:18px;'> <?= $coins ?>
+    <?php if ($email): ?>
+      <a href="profile.php">
+        <img src='../assets/images/profileqalamp.png' style='width:18px; height:18px;'> <?= $name ?>
+      </a>
+      <img src='../assets/images/xpqalam.png' style='width:18px; height:18px;'> <?= $xp ?>
+      <img src='../assets/images/coinqalam.png' style='width:18px; height:18px;'> <?= $coins ?>
+      <a href="../auth/logout.php" class="logout-btn">🔓 Шығу</a>
+    <?php else: ?>
+      <a href="../index.php">🔐 Кіру</a>
+      <a href="../login_register.php">📝 Тіркелу</a>
+    <?php endif; ?>
   </div>
 </div>
 
 <script>
 function toggleBurgerMenu() {
   const content = document.getElementById('burger-content');
-  if (content.style.display === 'flex') {
-    content.style.display = 'none';
-  } else {
-    content.style.display = 'flex';
-  }
+  content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
 }
 </script>

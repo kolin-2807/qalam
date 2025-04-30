@@ -1,6 +1,7 @@
 <?php
+include '../includes/header.php';
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+  
 }
 require '../config.php';
 
@@ -47,25 +48,6 @@ $coins = $_SESSION['coins'] ?? 0;
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">
-    Qalam 
-    <img src="../assets/images/navigationimages/LOGOTYPE-QALAM.png" alt="Logo">
-  </div>
-  <div class="nav">
-    <a href="../pages/quest_levels.php"><img src="../assets/images/navigationimages/SvitokQALAM.png" alt="Courses"></a>
-    <a href="#"><img src="../assets/images/navigationimages/KubokQALAM.png" alt="League"></a>
-    <a href="#"><img src="../assets/images/navigationimages/homeQALAM.png" alt="Home"></a>
-    <a href="#"><img src="../assets/images/navigationimages/MozgQALAM.png" alt="Clubs"></a>
-    <a href="#"><img src="../assets/images/navigationimages/CherepQALAM.png" alt="Subs"></a>
-  </div>
-  <div class="profile">
-    <a href="profile.php">👤 <?= $name ?></a> 
-      ⭐ <?= $xp ?> XP 
-      💰 <?= $coins ?>
-  </div>
-</div>
-
 <div class="main-content">
   <div class="left-panel">
     <h2> Qalam Hero Stats</h2>
@@ -73,7 +55,7 @@ $coins = $_SESSION['coins'] ?? 0;
     <div class="hero-block">
       <p>🎖 Q-Level <?= $level ?></p>
 
-      <p>🧠 XP:</p>
+      <p> XP:</p>
       <div class="xp-bar">
         <div class="xp-fill" style="width: <?= min(100, round(($xp / ($level * 100)) * 100)) ?>%;"></div>
       </div>
@@ -83,8 +65,8 @@ $coins = $_SESSION['coins'] ?? 0;
     <div class="hero-block">
       <p> Марапаттар:</p>
       <ul style="margin-left:15px; font-size:10px;">
-        <li>✅ Бірінші тапсырма орындалды</li>
-        <li>✅ Профиль жаңартылды</li>
+        <li> Бірінші тапсырма орындалды</li>
+        <li> Профиль жаңартылды</li>
       </ul>
     </div>
 
@@ -105,18 +87,18 @@ $coins = $_SESSION['coins'] ?? 0;
           <div class="card-header">Qalam Hero ID Card</div>
           <img src="<?= htmlspecialchars($avatar) ?>" alt="Avatar" class="avatar">
           <div class="info">
-            <p>👤 Аты: <span><?= htmlspecialchars($name) ?></span></p>
-            <p>🔤 Лақап аты: <span><?= htmlspecialchars($username) ?></span></p>
-            <p>🌆 Қала: <span><?= htmlspecialchars($city) ?><?= $state ? ", $state" : "" ?></span></p>
+            <p> Аты: <span><?= htmlspecialchars($name) ?></span></p>
+            <p> Лақап аты: <span><?= htmlspecialchars($username) ?></span></p>
+            <p> Қала: <span><?= htmlspecialchars($city) ?><?= $state ? ", $state" : "" ?></span></p>
           </div>
           <div class="bottom-left">📞 <?= htmlspecialchars($phone) ?></div>
           <div class="bottom-right">🕒 <?= $created ?></div>
         </div>
         <div class="back">
           <h3>Qalam Hero Credentials</h3>
-          <p>🪪 Рөл: Loop Sorcerer</p>
-          <p>🎖 Q-Level <?= $level ?></p>
-          <p>🧠 XP: <?= $xp ?> / <?= $level * 100 ?></p>
+          <p> Рөл: Loop Sorcerer</p>
+          <p> Q-Level <?= $level ?></p>
+          <p> XP: <?= $xp ?> / <?= $level * 100 ?></p>
           <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($email) ?>&size=80x80" alt="QR Code">
         </div>
       </div>

@@ -32,7 +32,6 @@ function isActiveForm($formName, $activeForm) {
 
 <body>
     <div class="img">
-       <img src="../assets/images/register.png" alt="register image" class="form-image">
     </div>
     <div class="container">
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
@@ -42,7 +41,8 @@ function isActiveForm($formName, $activeForm) {
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" name="login">Login</button>
-                <p>Don't have an account? <a href="#" onclick="showForm('register-form')">Register</a></p>
+                <div class="register-f"><p>Don't have an account? <a href="#" onclick="showForm('register-form')">Register</a></p>
+                </div>
             </form>
         </div>
 

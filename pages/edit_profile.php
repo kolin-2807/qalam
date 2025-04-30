@@ -1,5 +1,6 @@
 <?php
-session_start();
+include '../includes/header.php';
+require_once '../auth/guest_guard.php';
 require '../config.php';
 
 if (!isset($_SESSION['email'])) {
@@ -79,5 +80,7 @@ $user = $result->fetch_assoc();
 
     <a href="profile.php" class="back-link">← Профиль бетіне оралу</a>
   </div>
+
+  <?php include '../includes/footer.php'; ?>
 </body>
 </html>

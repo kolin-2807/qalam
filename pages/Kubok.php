@@ -1,6 +1,22 @@
-<?php include '../includes/header.php'; ?>
+<?php
+include '../includes/header.php';
+require '../config.php';
+
+if (!isset($_SESSION['email'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
+$email = $_SESSION['email'];
+$user_stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+$user_stmt->bind_param("s", $email);
+$user_stmt->execute();
+$user_result = $user_stmt->get_result();
+$user = $user_result->fetch_assoc();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,35 +37,50 @@
     <div>Progress</div>
   </div>
 
-  <!-- Top 10 users -->
-  <div class="leaderboard-row"><div>1</div><div>#U001</div><div>CodeMaster</div><div>3250</div><div>Senior</div><div>98%</div></div>
-  <div class="leaderboard-row"><div>2</div><div>#U002</div><div>DevPro</div><div>3120</div><div>Senior</div><div>96%</div></div>
-  <div class="leaderboard-row"><div>3</div><div>#U003</div><div>AlgoKing</div><div>2890</div><div>Mid</div><div>91%</div></div>
-  <div class="leaderboard-row"><div>4</div><div>#U004</div><div>PythonGirl</div><div>2740</div><div>Mid</div><div>89%</div></div>
-  <div class="leaderboard-row"><div>5</div><div>#U005</div><div>DebugHero</div><div>2600</div><div>Mid</div><div>85%</div></div>
-  <div class="leaderboard-row"><div>6</div><div>#U006</div><div>BitWarrior</div><div>2490</div><div>Mid</div><div>82%</div></div>
-  <div class="leaderboard-row"><div>7</div><div>#U007</div><div>StackJumper</div><div>2410</div><div>Junior</div><div>78%</div></div>
-  <div class="leaderboard-row"><div>8</div><div>#U008</div><div>NullPointer</div><div>2360</div><div>Junior</div><div>75%</div></div>
-  <div class="leaderboard-row"><div>9</div><div>#U009</div><div>Refactorer</div><div>2300</div><div>Junior</div><div>72%</div></div>
-  <div class="leaderboard-row"><div>10</div><div>#U010</div><div>CodeNinja</div><div>2250</div><div>Junior</div><div>70%</div></div>
+  <?php
+  $i = 1;
+  $sql = "SELECT * FROM users ORDER BY xp DESC LIMIT 10";
+  $result = $conn->query($sql);
 
-  <!-- Current user (out of top 10) -->
+  while ($row = $result->fetch_assoc()):
+      $percent = min(100, floor($row['xp'] / 20));
+  ?>
+    <div class="leaderboard-row">
+      <div><?= $i++ ?></div>
+      <div>#U<?= str_pad($row['id'], 3, '0', STR_PAD_LEFT) ?></div>
+      <div><?= htmlspecialchars($row['username']) ?></div>
+      <div><?= $row['xp'] ?></div>
+      <div><?= $row['level'] ?></div>
+      <div><?= $percent ?>%</div>
+    </div>
+  <?php endwhile; ?>
+
+  <?php
+  $my_xp = $user['xp'];
+  $position_sql = "SELECT COUNT(*) AS position FROM users WHERE xp > ?";
+  $pos_stmt = $conn->prepare($position_sql);
+  $pos_stmt->bind_param("i", $my_xp);
+  $pos_stmt->execute();
+  $pos_result = $pos_stmt->get_result()->fetch_assoc();
+  $my_place = $pos_result['position'] + 1;
+  $my_percent = min(100, floor($my_xp / 20));
+  ?>
   <div class="leaderboard-current-user">
-    <div>23</div>
-    <div>#U999</div>
-    <div>You</div>
-    <div>1680</div>
-    <div>Junior</div>
-    <div>56%</div>
-</div>
+      <div><?= $my_place ?></div>
+      <div>#U<?= str_pad($user['id'], 3, '0', STR_PAD_LEFT) ?></div>
+      <div><?= htmlspecialchars($user['username']) ?></div>
+      <div><?= $user['xp'] ?></div>
+      <div><?= $user['level'] ?></div>
+      <div><?= $my_percent ?>%</div>
+  </div>
 </div>
 <div>
     <button class="btn reward">Claim Reward</button>
     <button class="btn progress">View Progress</button>
     <button class="btn course">Go to Course</button>
-  </div>
 </div>
-  </div>
+</div>
+</div>
 <?php include '../includes/footer.php'; ?>
 </body>
 </html>

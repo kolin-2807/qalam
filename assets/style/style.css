@@ -1,6 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+a {
+    color: #fff;
+}
+
+p {
+    line-height: 2.4;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -8,13 +16,16 @@
 }
 
 body {
-    display: flex;
+    margin: 128px;
+    padding: auto;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #2c2c2c;
-    color: #000000;
-    font-family: "Press Start 2P", cursive; /* Шрифтті орнату */
+    background: url('../images/backgroundqalam.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative; 
+    font-family: 'Press Start 2P', cursive;
+    color: rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
 }
 
 .container {
@@ -118,4 +129,9 @@ p a:hover {
     font-size: 16px;
     text-align: center;
     margin-bottom: 25px;
+}
+
+.register-f {
+    margin: 8px;
+    padding: 8px;
 }

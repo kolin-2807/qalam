@@ -1,131 +1,197 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* 🔹 Header */
+body {
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #fff;
+}
 
+/* 🔹 Header */
 .header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    background: #2c2c2c;
-    padding: 20px 30px;
-    border-bottom: 6px yellow;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0 0 4px #310000;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background: #2c2c2c;
+  padding: 20px 30px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px #310000;
 }
 
 /* 🔹 Logo */
 .logo {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-left: 14px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 14px;
 }
 
 .logo img {
-    margin-left: 18px;
-    width: 42px;
-    height: 42px;
-    
+  margin-left: 18px;
+  width: 42px;
+  height: 42px;
 }
 
 /* 🔹 Profile Info */
 .profile {
-    font-size: 14px;
-    padding: 10px 18px;
-    background: #575757;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    box-shadow: 0 0 1px #000000;
-    border-radius: 1px;
+  font-size: 14px;
+  padding: 10px 18px;
+  background: #575757;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 0 1px #000000;
+  border-radius: 1px;
 }
 
 .profile a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  font-size: 12px;
 }
 
 .profile a:hover {
-    color: yellow;
+  color: yellow;
+}
+
+.logout-btn {
+  color: #ff5555;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+.profile a[href*="login"],
+.profile a[href*="register"] {
+  background: #00ccff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #000;
+  font-size: 10px;
+  margin: 0 4px;
+  text-shadow: none;
+}
+
+.profile a[href*="login"]:hover,
+.profile a[href*="register"]:hover {
+  background: #00ffaa;
+  color: #000;
 }
 
 /* 🔹 Burger Menu */
 .burger-menu {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .burger-icon {
-    margin-left: 22px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #ffffbb;
+  margin-left: 22px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ffffbb;
 }
 
 .burger-content {
-    display: none;
-    flex-direction: column;
-    background: #2c2c2c;
-    padding: 10px;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    border: 2px solid #ffffbb;
-    z-index: 999;
+  display: none;
+  flex-direction: column;
+  background: #2c2c2c;
+  padding: 10px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  border: 2px solid #ffffbb;
+  z-index: 999;
+  min-width: 80px;
 }
 
 /* 🔹 Burger Items Style */
 .burger-content a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #fff;
-    font-size: 10px;
-    margin: 12px 0;
-    transition: 0.3s ease;
-    font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 10px;
+  margin: 12px 0;
+  transition: 0.3s ease;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .burger-content a:hover {
-    transform: scale(1.1);
-    color: #ffcc00;
+  transform: scale(1.1);
+  color: #ffcc00;
 }
 
 .burger-content img {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 5px;
-    image-rendering: pixelated;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px;
+  image-rendering: pixelated;
 }
 
 /* 🔔 Notification Bell */
-.notification-bell {
-    margin-top: 12px;
-    text-align: center;
+.notification-icon {
+  position: absolute;
+  top: 96%;
+  left: 1%;
+  transform: translateX(-50%);
+  width: 98px;
+  height: 98px;
+  margin-top: 8px;
+  cursor: pointer;
+  animation: floatBell 2s infinite ease-in-out;
 }
 
-.notification-bell img {
-    width: 32px;
-    height: 32px;
-    image-rendering: pixelated;
+.notification-icon img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+@keyframes floatBell {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(0px); }
+  100% { transform: translateY(0); }
+}
+
+/* Егер болашақта сан қосқың келсе */
+.notif-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  padding: 3px 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px black;
+  z-index: 5;
 }
 
 /* 🔥 Responsive */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 24px;
-    }
-    .profile {
-        font-size: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .header {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .profile {
+    font-size: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
