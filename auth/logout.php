@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy(); // Барлық сессияны өшіреді
-header("Location: ../index.php"); // Басты бетке қайтарады
+header("Location: ../loginregister.php"); // Басты бетке емес, нақты бар бетке жібереді
 exit();
