@@ -60,10 +60,9 @@ if ($email) {
       </a>
       <img src='../assets/images/xpqalam.png' style='width:18px; height:18px;'> <?= $xp ?>
       <img src='../assets/images/coinqalam.png' style='width:18px; height:18px;'> <?= $coins ?>
-      <a href="../auth/logout.php" class="logout-btn">🔓 Шығу</a>
+      <a href="../auth/logout.php" class="logout-btn"> Шығу </a>
     <?php else: ?>
-      <a href="../index.php">🔐 Кіру</a>
-      <a href="../login_register.php">📝 Тіркелу</a>
+      <a href="../login_register.php"> Тіркелу </a>
     <?php endif; ?>
   </div>
 </div>

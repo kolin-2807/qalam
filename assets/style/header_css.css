@@ -156,6 +156,7 @@ body {
 }
 
 .notification-icon img {
+  margin-top: 10px;
   width: 100%;
   height: auto;
   image-rendering: pixelated;
@@ -171,12 +172,12 @@ body {
 .notif-badge {
   position: absolute;
   top: -6px;
-  right: -6px;
+  right: 12px;
   background-color: red;
   color: white;
   font-size: 8px;
   font-family: 'Press Start 2P', cursive;
-  padding: 3px 5px;
+  padding: 4px 6px;
   border-radius: 50%;
   box-shadow: 0 0 3px black;
   z-index: 5;

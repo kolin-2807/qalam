@@ -53,9 +53,9 @@ $coins = $_SESSION['coins'] ?? 0;
     <h2> Qalam Hero Stats</h2>
 
     <div class="hero-block">
-      <p>🎖 Q-Level <?= $level ?></p>
+      <p> Q-Level <?= $level ?></p>
 
-      <p> XP:</p>
+      <p> XP </p>
       <div class="xp-bar">
         <div class="xp-fill" style="width: <?= min(100, round(($xp / ($level * 100)) * 100)) ?>%;"></div>
       </div>
@@ -63,15 +63,15 @@ $coins = $_SESSION['coins'] ?? 0;
     </div>
 
     <div class="hero-block">
-      <p> Марапаттар:</p>
+      <p> Марапаттар </p>
       <ul style="margin-left:15px; font-size:10px;">
-        <li> Бірінші тапсырма орындалды</li>
+        <li> Бірінші тапсырма орындалды </li>
         <li> Профиль жаңартылды</li>
       </ul>
     </div>
 
     <div class="hero-block">
-      <p> Күннің сөзі:</p>
+      <p> Күннің сөзі </p>
       <p class="quote">"Бүгінгі қадамың — ертеңгі жеңісің!"</p>
     </div>
 
@@ -91,8 +91,8 @@ $coins = $_SESSION['coins'] ?? 0;
             <p> Лақап аты: <span><?= htmlspecialchars($username) ?></span></p>
             <p> Қала: <span><?= htmlspecialchars($city) ?><?= $state ? ", $state" : "" ?></span></p>
           </div>
-          <div class="bottom-left">📞 <?= htmlspecialchars($phone) ?></div>
-          <div class="bottom-right">🕒 <?= $created ?></div>
+          <div class="bottom-left"> <?= htmlspecialchars($phone) ?></div>
+          <div class="bottom-right"> <?= $created ?></div>
         </div>
         <div class="back">
           <h3>Qalam Hero Credentials</h3>
@@ -107,7 +107,7 @@ $coins = $_SESSION['coins'] ?? 0;
 </div>
 
 <div class="level-up-banner" id="levelBanner">
-  🎉 LEVEL UP! <br> Құттықтаймыз, жаңа деңгей! 🚀
+  🎉 LEVEL UP! <br> Құттықтаймыз, жаңа деңгей! 
 </div>
 <audio id="levelSound" src="../assets/levelup.mp3" preload="auto"></audio>
 

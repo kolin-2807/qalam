@@ -147,7 +147,7 @@ body {
     border-radius: 2px;
     display: flex;                /* Ставим все в ряд */
     justify-content: space-evenly; /* Равномерно распределяем элементы */
-    margin: 0 20px;
+    margin: 0px 0px 20px 20px;
     background-color: #666666;
   }
   
@@ -180,5 +180,37 @@ body {
     padding: 20px 0;
     color: #ffff;       /* Цвет текста */
     text-align: center;   /* По центру */
-    margin: 20px 300px 10px;
+  }
+
+  .preimushestva-title {
+    opacity: 0.9;
+    background-color: #0a0a0a;
+    padding: 20px 0;
+    color: #ffff;       /* Цвет текста */
+    text-align: center;   /* По центру */
+  }
+
+
+  .preimuchestva {
+    border-radius: 2px;
+    display: flex;                /* Ставим все в ряд */
+    justify-content: space-evenly; /* Равномерно распределяем элементы */
+    margin: 0 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  .preimuchestva h4 {
+    text-align: center;        /* Центрируем всё внутри блока */
+    
+  }
+
+  .preimuchestva p {
+    margin-bottom: 64px;
+    font-size: 12px;
+    color: #ffffbb;                /* Серый текст описания */
+  }
+
+  .preimuchestva img {
+    width: 150px;      /* Размер картинок */
+    height: 150px;
   }

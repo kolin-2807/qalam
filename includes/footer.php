@@ -38,11 +38,12 @@
   </div>
 
   <div class="footer-bottom">
-    <p>© 2025 Qalam. Барлық құқықтар қорғалған.</p><br>
+    <p>© 2025 Qalam - Барлық құқықтар қорғалған</p><br>
     <div class="social-icons">
       <a href="https://facebook.com" target="_blank"><img src="../assets/images/footer/facebook.png" alt="Facebook"></a>
-      <a href="https://twitter.com" target="_blank"><img src="../assets/images/footer/twitter.png" alt="Twitter"></a>
+      <a href="https://youtube.com" target="_blank"><img src="../assets/images/footer/youtube.png" alt="YouTube"></a>
       <a href="https://instagram.com" target="_blank"><img src="../assets/images/footer/instagram.png" alt="Instagram"></a>
+      <a href="https://tiktok.com" target="_blank"><img src="../assets/images/footer/tiktok.png" alt="Tiktok"></a>
     </div>
   </div>
 </footer>
@@ -111,11 +112,12 @@ p {
 }
 
 .social-icons a img {
-  width: 20px;
-  height: 20px;
+  
+  width: 24px;
+  height: 24px;
   margin-left: 8px;
   transition: transform 0.3s;
-}
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);}
 
 .social-icons a img:hover {
   transform: scale(1.2);
