@@ -74,8 +74,8 @@ $coins = $user['coins'] ?? 0;
   </div>
 
 </div>
-<div>
 
+<div>
 <h3 class="preimushestva-title">Біздің ерекшеліктеріміз</h3>
 </div>
 <div class="preimuchestva">
@@ -139,6 +139,22 @@ function toggleBurgerMenu() {
     content.style.display = 'flex';
   }
 }
+</script>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200);
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  const blocks = document.querySelectorAll('.preimuchestva > div');
+  blocks.forEach(block => observer.observe(block));
 </script>
 
 
