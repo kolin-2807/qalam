@@ -82,22 +82,22 @@ $coins = $user['coins'] ?? 0;
 
   <div>
   <h4>Қызықты</h4>
-    <img src="../assets/images/nashipreimushestva.png" alt="Silver">
+    <img src="../assets/images/nashipreimushestva.png" alt="K">
     <p>уақытыңызды көңілді пайдаланыңыз<br>және үйреніңіз</p>
   </div>
   <div>
   <h4>Геймификация</h4>
-    <img src="../assets/images/nashipreimushestva2.png" alt="Silver">
+    <img src="../assets/images/nashipreimushestva2.png" alt="G">
     <p>ойын элементтері арқылы<br> ностальгияда болыңыз</p>
   </div>
   <div>
   <h4>Үнемділік</h4>
-    <img src="../assets/images/nashipreimushestva3.png" alt="Silver">
+    <img src="../assets/images/nashipreimushestva3.png" alt="Y">
     <p>Уақытыңызды үнемдеңіз<br>ыңғайлы әрі тартымды интерфейс</p>
   </div>
   <div>
   <h4>Идея</h4>
-    <img src="../assets/images/nashipreimushestva4.png" alt="Silver">
+    <img src="../assets/images/nashipreimushestva4.png" alt="I">
     <p>біздің курстардан шабыт <br>алып өз жобаңызды бастаңыз</p>
   </div>
 

@@ -13,7 +13,6 @@ body {
 
 .raiting-container {
     background-size: cover;
-    
     }
 
 .raiting-back {
@@ -22,13 +21,6 @@ background-size: cover;
 padding: 20px 40px;
 margin-bottom: 80px;
 }
-
-body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    margin: 0;
-    padding: 20px;
-  }
   
   .leaderboard {
     margin: 0 128px;
