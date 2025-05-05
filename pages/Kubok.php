@@ -3,7 +3,7 @@ include '../includes/header.php';
 require '../config.php';
 
 if (!isset($_SESSION['email'])) {
-    header("Location: ../loginregister.php");
+    header("Location: ../header.php");
     exit();
 }
 

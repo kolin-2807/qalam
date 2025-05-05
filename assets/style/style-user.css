@@ -20,7 +20,7 @@ body {
 /* 🤖 Qalam Bot */
 .qalam-bot {
     position: fixed;
-    bottom: 30px;
+    bottom: 0px;
     right: 30px;
     display: flex;
     align-items: center; /* ❗ Міне осы жер */
