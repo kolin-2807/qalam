@@ -39,7 +39,7 @@ if ($email) {
       <a href="../pages/quest_levels.php"><img src="../assets/images/navigationimages/SvitokQALAM.png" alt="Courses">Courses</a>
       <a href="Kubok.php"><img src="../assets/images/navigationimages/KubokQALAM.png" alt="League">League</a>
       <a href="user_page.php"><img src="../assets/images/navigationimages/homeQALAM.png" alt="Home">Home</a>
-      <a href="#"><img src="../assets/images/navigationimages/MozgQALAM.png" alt="Clubs">Q-hub</a>
+      <a href="/Qalam/qalamchat/Qalamchat.php"><img src="../assets/images/navigationimages/MozgQALAM.png" alt="Clubs">Q-hub</a>
       <a href="Plans.php"><img src="../assets/images/navigationimages/CherepQALAM.png" alt="Subs">Plans</a>
       <!-- 🔔 Қоңырау иконкасы -->
       <div class="notification-icon">

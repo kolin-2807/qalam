@@ -9,7 +9,7 @@ server.listen(3000);
 
 // Отслеживание url адреса и отображение нужной HTML страницы
 app.get('/', function(request, respons) {
-	respons.sendFile(__dirname + '/Qalamchat.html');
+	respons.sendFile(__dirname + '/Qalamchat.php');
 });
 
 // Массив со всеми подключениями
