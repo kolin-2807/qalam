@@ -12,7 +12,7 @@ body {
 .header {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: #2c2c2c;
   padding: 20px 30px;
   width: 100%;
@@ -30,19 +30,20 @@ body {
 }
 
 .logo img {
-  margin-left: 18px;
+  margin-left: 14px;
   width: 42px;
   height: 42px;
 }
 
 /* 🔹 Profile Info */
 .profile {
+  margin-right: 20px;
   font-size: 14px;
   padding: 10px 18px;
   background: #575757;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   box-shadow: 0 0 1px #000000;
   border-radius: 1px;
 }
@@ -71,6 +72,28 @@ body {
   color: #ff0000;
   text-decoration: underline;
 }
+
+.corzina {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  /* ...басқа стильдер... */
+}
+
+.corzina-badge {
+  position: absolute;
+  top: -6px;
+  right: 10px; /* немесе 0-12px аралығында өзің байқап көр */
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  font-family: 'Press Start 2P', cursive;
+  padding: 2px 6px;
+  border-radius: 2px;
+  box-shadow: 0 0 3px black;
+}
+
+
 
 .profile a[href*="login"],
 .profile a[href*="register"] {
@@ -140,6 +163,46 @@ body {
   height: 48px;
   margin-bottom: 5px;
   image-rendering: pixelated;
+}
+
+.notif-dropdown {
+  position: absolute;
+  top: 85px;
+  left: 100%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: #2c2c2c;
+  border: 2px solid #a05000;
+  border-radius: 2px;
+  display: none;
+  flex-direction: column;
+  padding: 5px;
+  z-index: 1000;
+}
+
+.notif-item {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: #ffffff;
+  padding: 6px;
+  border-bottom: 1px solid #a05000;
+  text-align: center;
+}
+
+.notif-item:last-child {
+  border-bottom: none;
+}
+
+@keyframes bellShake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+  60% { transform: rotate(-15deg); }
+  80% { transform: rotate(15deg); }
+}
+
+.notification-icon.active img {
+  animation: bellShake 0.8s infinite;
 }
 
 /* 🔔 Notification Bell */

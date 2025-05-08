@@ -4,7 +4,7 @@ require_once '../auth/guest_guard.php';
 require '../config.php';
 
 if (!isset($_SESSION['email'])) {
-    header("Location: index.php");
+    header("Location: h.php");
     exit();
 }
 

@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require '../config.php';
 
 if (!isset($_SESSION['email'])) {
-    header("Location: ../index.php");
+    header("Location: ../header.php");
     exit();
 }
 
@@ -107,7 +107,7 @@ $coins = $_SESSION['coins'] ?? 0;
 </div>
 
 <div class="level-up-banner" id="levelBanner">
-  🎉 LEVEL UP! <br> Құттықтаймыз, жаңа деңгей! 
+   LEVEL UP! <br> Құттықтаймыз, жаңа деңгей! 
 </div>
 <audio id="levelSound" src="../assets/levelup.mp3" preload="auto"></audio>
 
