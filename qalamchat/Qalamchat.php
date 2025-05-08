@@ -1,116 +1,88 @@
-<?php include '../includes/header.php'; ?>
 <?php
-require '../config.php'; // Базамен байланыс
+include '../includes/header.php';
+require '../config.php';
+
+$name = $_SESSION['name'] ?? 'Қонақ';
+$allUsers = [];
+
+if ($conn) {
+    $res = $conn->query("SELECT name FROM users WHERE name != '$name'");
+    while($row = $res->fetch_assoc()) {
+        $allUsers[] = $row['name'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-	<title>Чат программа</title>
-	<!-- Свои стили -->
-	<style>
-		body {
-			background: #fcfcfc;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Q-hub – Qalam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style/Qalamchat.css">
 </head>
 <body>
-	<!-- Основная часть страницы -->
-	<div class="container">
-		<div class="py-5 text-center">
-			<h2>Чат программа</h2>
-            <p class="lead">Укажите ваше имя и начинайте переписку</p>
-		</div>
-		<div class="row">
-			<div class="col-6">
-				<!-- Форма для получения сообщений и имени -->
-				<h3>Форма сообщений</h3>
-				<form id="messForm">
-					<label for="name">Имя</label>
-					<input type="text" name="name" id="name" placeholder="Введите имя" class="form-control">
-					<br>
-					<label for="message">Сообщение</label>
-					<textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
-					<br>
-					<input type="submit" value="Отправить" class="btn btn-danger">
-				</form>
-			</div>
-			<div class="col-6">
-				<h3>Сообщения</h3>
-				<!-- Вывод всех сообщений будет здесь -->
-				<div id="all_mess"></div>
-			</div>
-		</div>
-	</div>
-	<!-- Подключаем jQuery, а также Socket.io -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
-	<script>
-		// У каждого пользователя будет случайный стиль для блока с сообщенями,
-		// поэтому в этом кусочке кода мы получаем случайные числа
-		var min = 1;
-		var max = 6;
-        var random = Math.floor(Math.random() * (max - min)) + min;
 
-		// Устаналиваем класс в переменную в зависимости от случайного числа
-		// Эти классы взяты из Bootstrap стилей
-		var alertClass;
-		switch (random) {
-			case 1:
-				alertClass = 'secondary';
-				break;
-			case 2:
-				alertClass = 'danger';
-				break;
-			case 3:
-				alertClass = 'success';
-				break;
-			case 4:
-				alertClass = 'warning';
-				break;
-			case 5:
-				alertClass = 'info';
-				break;
-			case 6:
-				alertClass = 'light';
-				break;
-		}
+<div class="container">
+    <div class="users-list">
+        <h3>Q-hub</h3>
+        <?php foreach ($allUsers as $user): ?>
+            <div class="user" data-name="<?= $user ?>"><?= $user ?></div>
+        <?php endforeach; ?>
+    </div>
 
-		// Функция для работы с данными на сайте
-		$(function() {
-            // Включаем socket.io и отслеживаем все подключения
-			var socket = io.connect();
-			// Делаем переменные на:
-			var $form = $("#messForm"); // Форму сообщений
-			var $name = $("#name"); // Поле с именем
-			var $textarea = $("#message"); // Текстовое поле
-			var $all_messages = $("#all_mess"); // Блок с сообщениями
+    <div class="chat-section">
+        <h3>Чат ➔ <span id="chatWith">---</span></h3>
+        <div id="all_mess"></div>
+        <form id="messForm" class="message-box">
+            <textarea id="message" placeholder="Хабарлама жаз..." required></textarea>
+            <input type="hidden" id="name" value="<?= $name ?>">
+            <input type="hidden" id="receiver">
+            <button type="submit">Жіберу</button>
+        </form>
+    </div>
+</div>
 
-			// Отслеживаем нажатие на кнопку в форме сообщений
-			$form.submit(function(event) {
-				// Предотвращаем классическое поведение формы
-				event.preventDefault();
-				// В сокет отсылаем новое событие 'send mess',
-				// в событие передаем различные параметры и данные
-				socket.emit('send mess', {mess: $textarea.val(), name: $name.val(), className: alertClass});
-				// Очищаем поле с сообщением
-				$textarea.val('');
-			});
+<!-- 📦 JS кітапханалар -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
-			// Здесь отслеживаем событие 'add mess', 
-			// которое должно приходить из сокета в случае добавления нового сообщения
-			socket.on('add mess', function(data) {
-				// Встраиваем полученное сообщение в блок с сообщениями
-				// У блока с сообщением будет тот класс, который соответвует пользователю что его отправил
-				$all_messages.append("<div class='alert alert-" + data.className + "'><b>" + data.name + "</b>: " + data.mess + "</div>");
-			});
+<!-- ✅ Барлық логика бір жерде, document.ready ішінде -->
+<script>
+$(document).ready(function () {
+    let selectedUser = null;
+    const socket = io.connect('http://localhost:3000');
+    const me = $("#name").val();
 
-		});
-	</script>
+    $(".user").click(function () {
+        selectedUser = $(this).text().trim();  // ← мәтінді нақты аламыз
+        $("#chatWith").text(selectedUser);
+        $("#receiver").val(selectedUser);
+        $("#all_mess").html('');
+    });
+
+    $("#messForm").submit(function (e) {
+        e.preventDefault();
+        const msg = {
+            name: me,
+            receiver: $("#receiver").val(),
+            mess: $("#message").val()
+        };
+
+        console.log("📤 Жіберіліп жатыр:", msg);
+        socket.emit('send mess', msg);
+        $("#message").val('');
+    });
+
+    socket.on('add mess', function (data) {
+        const you = $("#receiver").val();
+        if ((data.name === me && data.receiver === you) || (data.name === you && data.receiver === me)) {
+            const cls = data.name === me ? 'me' : 'other';
+            $("#all_mess").append(`<div class="message ${cls}"><b>${data.name}:</b> ${data.mess}</div>`);
+        }
+    });
+});
+</script>
+
 </body>
 </html>
