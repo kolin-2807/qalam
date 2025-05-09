@@ -18,6 +18,11 @@
         <img src="../assets/images/Bronze.svg" alt="Junior">
         <p class="plan-short">Junior курстар мен сертификат.</p>
       </div>
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> 0ff0b7e (Qalam бірдеңесін өзгерттім, несін екенін көр.)
       <a class="buy-button" href="../pages/Kaspiqr.php?plan=junior">Купить</a>
     </div>
 
@@ -27,6 +32,10 @@
         <img src="../assets/images/Silver.svg" alt="Middle">
         <p class="plan-short">Middle курстар, сертификат, жүлделер.</p>
       </div>
+<<<<<<< HEAD
+=======
+     
+>>>>>>> 0ff0b7e (Qalam бірдеңесін өзгерттім, несін екенін көр.)
       <a class="buy-button" href="../pages/Kaspiqr.php?plan=middle">Купить</a>
     </div>
 
@@ -36,6 +45,12 @@
         <img src="../assets/images/Gold.svg" alt="Full">
         <p class="plan-short">Толық қолжетімділік пен жұмысқа ұсыныс.</p>
       </div>
+<<<<<<< HEAD
+=======
+
+      
+
+>>>>>>> 0ff0b7e (Qalam бірдеңесін өзгерттім, несін екенін көр.)
       <a class="buy-button" href="../pages/Kaspiqr.php?plan=full">Купить</a>
     </div>
 
