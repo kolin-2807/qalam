@@ -4,7 +4,7 @@
 require '../config.php'; // Базамен байланыс
 
 if (!isset($_SESSION['email'])) {
-    header("Location: ../index.php");
+    header("Location: ../header.php");
     exit();
 }
 
@@ -117,11 +117,13 @@ $coins = $user['coins'] ?? 0;
 
 <script>
 const botPhrases = [
-  "Қош келдің, батыр Қажы!",
-  "Code Quest дайын – тек сені күтіп тұр!",
-  "Сенде бүгін күшті күн болады!",
-  "XP жинау — батырлар ісі!",
+  "Қош келдің досым!",
+  "Code Quest – тек сені күтіп тұр!",
+  "Сенде бүгін ерекше күн болады!",
+  "XP жинап — рейтингке қатыс!",
   "Бүгінгі күнің сәтті өтсін!",
+  "Ешқашан берілме, тек алға!",
+  "Мүмкін жазылымдарды қарап өтеміз?",
 ];
 
 document.addEventListener("DOMContentLoaded", function() {

@@ -12,19 +12,19 @@
 <div class="shop-container">
   <div class="item-card">
     <div class="item-content">
-    <img src="../assets/images/Bronze.svg" alt="buy1">
+    <img src="../assets/images/navigationimages/qaspibuy.jpg" alt="buy1">
     </div>
     <p class="plan-short">Junior курстар мен сертификат.</p>
   </div>
   <div class="item-card">
     <div class="item-content">
-    <img src="../assets/images/Silver.svg" alt="buy2">
+    <img src="../assets/images/navigationimages/qaspibuy.jpg" alt="buy2">
     </div>
     <p class="plan-short">Middle курстар, сертификат, жүлделер.</p>
   </div>
   <div class="item-card">
     <div class="item-content">
-    <img src="../assets/images/Gold.svg" alt="buy3">
+    <img src="../assets/images/navigationimages/qaspibuy.jpg" alt="buy3">
     </div>
     <p class="plan-short">Толық қолжетімділік пен жұмысқа ұсыныс.</p>
   </div>

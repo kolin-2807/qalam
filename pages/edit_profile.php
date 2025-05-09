@@ -1,7 +1,7 @@
 <?php
 include '../includes/header.php';
 require_once '../auth/guest_guard.php';
-require '../config.php';
+require '../config.php'; 
 
 if (!isset($_SESSION['email'])) {
     header("Location: h.php");

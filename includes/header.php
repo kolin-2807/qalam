@@ -67,11 +67,11 @@ if ($email) {
       <img src='../assets/images/coinqalam.png' style='width:18px; height:18px;'> <?= $coins ?>
       <a href="../auth/logout.php" class="logout-btn"> Шығу </a>
       <div class="corzina">
-      <a href="../pages/corzina.php"><img src="../assets/images/navigationimages/corzina.png" style='width:18px; height:18px;' alt="Корзина">
+      <a href="../pages/corzina.php"><img src="../assets/images/navigationimages/corzina.png" style='width:18px; height:18px;' alt="Корзина"></a>
   <div class="corzina-badge">3</div> <!-- Мысалы, 3 зат -->
 </div>
     <?php else: ?>
-      <a href="../login_register.php"> Тіркелу </a>
+      <a href="../loginregister.php"> Тіркелу </a>
     <?php endif; ?>
   </div>
 </div>
