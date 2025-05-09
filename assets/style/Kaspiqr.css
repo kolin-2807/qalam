@@ -1,69 +1,68 @@
-.shop-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .item-card {
-    width: 320px;
-    height: 400px;
-    background-color: #222;
-    border: 2px solid #aaa;
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Press Start 2P', cursive;
-    padding: 10px;
-    color: white;
-  }
-  
-  .item-content {
-    width: 100%;
-    height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 1px;
-  }
-  
-  .item-content img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  .plan-short {
-    font-size: 10px;
-    text-align: center;
-    margin: 8px 0;
-    line-height: 1.4;
-  }  
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+  margin: 0;
+  background-color: #1b1b1b;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .buy-all-wrapper {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .buy-all-button {
-    display: inline-block;
-    background-color: #00cc66;
-    color: #fff;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    padding: 10px 20px;
-    border-radius: 1px;
-    text-decoration: none;
-    transition: background-color 0.2s;
-    box-shadow: 0 0 5px black;
-  }
-  
-  .buy-all-button:hover {
-    background-color: #00aa55;
-  }
-  
+.qr-container {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #1b1b1b;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.qr-card {
+  display: inline-block;
+  background-color: #222;
+  border: 2px solid #aaa;
+  padding: 20px;
+  width: 440px;
+  font-size: 11px; /* ⬅️ үлкейтілді */
+  line-height: 1.8;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.qr-card h2 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.qr-card img {
+  width: 290px;
+  border: 4px solid #fff;
+  margin-bottom: 10px;
+}
+
+.qr-plan {
+  font-size: 11px; /* ⬅️ бұрын 8px еді */
+  color: #ccc;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.qr-note {
+  font-size: 11px; /* ⬅️ оқуға ыңғайлы */
+  color: #bbb;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 10px;
+  color: #046d39;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #00ff99;
+}

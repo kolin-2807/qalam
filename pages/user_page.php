@@ -1,27 +1,33 @@
-<?php include '../includes/header.php'; ?>
 <?php
-
-require '../config.php'; // Базамен байланыс
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+require '../config.php';
 
 if (!isset($_SESSION['email'])) {
-    header("Location: ../header.php");
-    exit();
+    // Логин болмаған жағдайда да сайт ашылуы керек болса, redirect ЖАСАМА!
+    // Егер redirect қажет болса, басқа жерде, мысалы тапсырма бетінде ғана жаса
+
+    // Тек $email-ді null деп белгіле:
+    $email = null;
+    $user = null;
+    $name = 'Қонақ';
+    $xp = 0;
+    $coins = 0;
+} else {
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    $name = htmlspecialchars($user['name'] ?? 'Player');
+    $xp = $user['xp'] ?? 0;
+    $coins = $user['coins'] ?? 0;
 }
-
-$email = $_SESSION['email'];
-
-// Пайдаланушыны базадан алу
-$query = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
-
-$name = htmlspecialchars($user['name'] ?? 'Player');
-$xp = $user['xp'] ?? 0;
-$coins = $user['coins'] ?? 0;
 ?>
+<?php include '../includes/header.php'; ?>
 
 
 <!DOCTYPE html>

@@ -2,35 +2,26 @@
 session_start();
 require_once '../config.php';
 
+// 🔒 Тек админ ғана көре алады (роль тексеру керек)
 if ($_SESSION['role'] !== 'admin') {
     die("⚠️ Тек админге рұқсат.");
 }
 
-// 🔄 Жаңа жоспар орнату + қолжетімділік беру
-if (isset($_POST['set_access'])) {
-    $userId = (int)$_POST['user_id'];
-    $level = $_POST['access_level'];
-    $grant = 1;
-
-    $stmt = $conn->prepare("UPDATE users SET access_level = ?, access_granted = ? WHERE id = ?");
-    $stmt->bind_param("sii", $level, $grant, $userId);
-    $stmt->execute();
-
-    header("Location: admin_page.php");
-    exit();
-}
-
-// 🔄 Тек қолжетімділікті жабу
-if (isset($_GET['revoke']) && isset($_GET['id'])) {
+// 🛠 Қолжетімділікті өзгерту логикасы
+if (isset($_GET['toggle']) && isset($_GET['id'])) {
     $userId = (int)$_GET['id'];
-    $stmt = $conn->prepare("UPDATE users SET access_granted = 0 WHERE id = ?");
-    $stmt->bind_param("i", $userId);
+    $currentStatus = (int)$_GET['toggle'];
+    $newStatus = $currentStatus === 1 ? 0 : 1;
+
+    $stmt = $conn->prepare("UPDATE users SET access_granted = ? WHERE id = ?");
+    $stmt->bind_param("ii", $newStatus, $userId);
     $stmt->execute();
 
-    header("Location: admin_page.php");
+    header("Location: admin_payments.php");
     exit();
 }
 
+// 👥 Барлық пайдаланушыларды алу
 $users = $conn->query("SELECT id, name, email, access_level, access_granted FROM users");
 ?>
 
@@ -38,7 +29,7 @@ $users = $conn->query("SELECT id, name, email, access_level, access_granted FROM
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Panel</title>
+  <title>Qalam Admin — Қолжетімділік</title>
   <link rel="stylesheet" href="../assets/style/admin-panel.css">
   <style>
     body {
@@ -58,23 +49,17 @@ $users = $conn->query("SELECT id, name, email, access_level, access_granted FROM
       padding: 8px;
       text-align: center;
     }
-    .grant-form select,
-    .grant-form button {
-      font-family: inherit;
-      font-size: 10px;
-      padding: 4px 6px;
-    }
-    .grant-form button {
+    .grant-btn {
       background-color: #00cc66;
-      border: none;
-      cursor: pointer;
+      color: black;
+      padding: 4px 8px;
+      text-decoration: none;
     }
     .revoke-btn {
       background-color: #cc0000;
       color: white;
       padding: 4px 8px;
       text-decoration: none;
-      font-size: 10px;
     }
   </style>
 </head>
@@ -103,18 +88,9 @@ $users = $conn->query("SELECT id, name, email, access_level, access_granted FROM
         <td><?= $user['access_granted'] ? '✅ Ашық' : '❌ Жабық' ?></td>
         <td>
           <?php if ($user['access_granted']): ?>
-            <a class="revoke-btn" href="?revoke=1&id=<?= $user['id'] ?>">Қолжетімділікті жабу</a>
+            <a class="revoke-btn" href="?toggle=1&id=<?= $user['id'] ?>">Қолжетімділікті жабу</a>
           <?php else: ?>
-            <form class="grant-form" method="POST">
-              <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
-              <select name="access_level" required>
-                <option value="">Таңда</option>
-                <option value="junior">Junior</option>
-                <option value="middle">Middle</option>
-                <option value="full">Full</option>
-              </select>
-              <button type="submit" name="set_access">✅ Рұқсат беру</button>
-            </form>
+            <a class="grant-btn" href="?toggle=0&id=<?= $user['id'] ?>">Қолжетімділікті беру</a>
           <?php endif; ?>
         </td>
       </tr>

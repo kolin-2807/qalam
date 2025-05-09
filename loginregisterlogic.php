@@ -4,16 +4,24 @@ require_once 'config.php';
 
 if (isset($_POST['register'])) {
     $name = $_POST['name'];
-    $email = $_POST['email']; 
+    $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
-    $checkEmail = $conn->query("SELECT email FROM users WHERE email = '$email'");
-    if ($checkEmail->num_rows > 0) {
-        $_SESSION['register_error'] = 'Email is already registered!';
+    // Email бұрын тіркелген бе?
+    $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $_SESSION['register_error'] = 'Email already registered!';
         $_SESSION['active_form'] = 'register';
     } else {
-        $conn->query("INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
+        $stmt = $conn->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $name, $email, $password, $role);
+        $stmt->execute();
+        $_SESSION['active_form'] = 'login';
     }
 
     header("Location: loginregister.php");
@@ -24,16 +32,20 @@ if (isset($_POST['login'])) {
     $email = strtolower($_POST['email']);
     $password = $_POST['password'];
 
-    $result = $conn->query("SELECT * FROM users WHERE LOWER(email) = '$email'");
+    $stmt = $conn->prepare("SELECT id, name, email, password, role FROM users WHERE LOWER(email) = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
         if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];              // ✅ СЕССИЯ ҚОЙДЫҚ!
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
 
-            // ✅ Енді дұрыс бағыттаймыз:
             if ($user['role'] === 'admin') {
                 header("Location: pages/admin_page.php");
             } else {
@@ -45,8 +57,6 @@ if (isset($_POST['login'])) {
 
     $_SESSION['login_error'] = 'Incorrect email or password';
     $_SESSION['active_form'] = 'login';
-
-    // 🔴 Бұрын index.php деп қате жазылған:
     header("Location: loginregister.php");
     exit();
 }

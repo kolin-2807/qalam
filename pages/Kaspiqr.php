@@ -1,39 +1,49 @@
-<?php include '../includes/header.php'; ?>
+<?php
+session_start();
+require_once '../config.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../loginregister.php");
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+$plan = $_GET['plan'] ?? 'junior';
+
+$allowed_plans = ['junior', 'middle', 'full'];
+if (!in_array($plan, $allowed_plans)) {
+    die("❌ Жоспар табылмады.");
+}
+
+// 👇 Қолжетімділік деңгейін базаға жазамыз
+$stmt = $conn->prepare("UPDATE users SET access_level = ? WHERE id = ?");
+$stmt->execute([$plan, $user_id]);
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/style/Kaspiqr.css">
+  <meta charset="UTF-8">
+  <title>Kaspi төлем</title>
+  <link rel="stylesheet" href="../assets/style/Kaspiqr.css">
 </head>
 <body>
-
-<div class="shop-container">
-  <div class="item-card">
-    <div class="item-content">
-    <img src="../assets/images/navigationimages/qaspibuy.jpg" alt="buy1">
+  <div class="qr-container" style="text-align:center; padding:40px;">
+    <div class="qr-card">
+      <h2><?= ucfirst($plan) ?> жоспары үшін төлем жасаңыз</h2>
+      <img src="../assets/images/navigationimages/qaspibuy.jpg" width="300"><br><br>
+      <p class="qr-plan">
+        <?php
+          if ($plan == 'junior') echo "🎓 Junior курстар мен сертификаттар";
+          elseif ($plan == 'middle') echo "🥈 Middle курстар + жүлделер";
+          elseif ($plan == 'full') echo "👑 Толық контент пен жұмыс ұсыныс!";
+        ?>
+      </p>
+      <p style="margin-top:20px; color:#ccc;">Төлем жасалған соң админ растаған кезде контент ашылады ✅</p>
     </div>
-    <p class="plan-short">Junior курстар мен сертификат.</p>
-  </div>
-  <div class="item-card">
-    <div class="item-content">
-    <img src="../assets/images/navigationimages/qaspibuy.jpg" alt="buy2">
-    </div>
-    <p class="plan-short">Middle курстар, сертификат, жүлделер.</p>
-  </div>
-  <div class="item-card">
-    <div class="item-content">
-    <img src="../assets/images/navigationimages/qaspibuy.jpg" alt="buy3">
-    </div>
-    <p class="plan-short">Толық қолжетімділік пен жұмысқа ұсыныс.</p>
-  </div>
 
-  <!-- Кнопка "Купить всё!" -->
-  <div class="buy-all-wrapper">
-    <a class="buy-all-button" href="/cart/checkout">Купить всё!</a>
+    <a class="back-link" href="task_page.php">← Тапсырмаларға өту</a>
   </div>
-</div>
-
 </body>
 </html>

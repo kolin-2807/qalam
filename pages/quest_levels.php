@@ -3,12 +3,12 @@
 require '../config.php';
 
 if (!isset($_SESSION['email'])) {
-    header("Location: ../index.php");
+    header("Location: ../loginregister.php");
     exit();
 }
 
 $email = $_SESSION['email'];
-$query = "SELECT xp FROM users WHERE email = ?";
+$query = "SELECT xp, access_level, access_granted FROM users WHERE email = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -16,6 +16,9 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 $xp = $user['xp'] ?? 0;
+$access = $user['access_level'] ?? 'junior';
+$granted = $user['access_granted'] ?? 0;
+
 $level = floor($xp / 100);
 ?>
 
@@ -23,7 +26,7 @@ $level = floor($xp / 100);
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Courses</title>
+  <title>Qalam Quest Levels</title>
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pixel-operator" type="text/css"/>
   <link rel="stylesheet" href="../assets/style/quest-levels.css">
 </head>
@@ -31,30 +34,35 @@ $level = floor($xp / 100);
   <h1 class="title">QALAM QUEST LEVELS</h1>
 
   <div class="levels-container">
-    <div class="level-card <?= $level >= 1 ? 'unlocked' : 'locked' ?>">
+    <!-- Level 1 – барлығына ашық -->
+    <div class="level-card unlocked">
       <img src="../assets/images/levels/spring.png" alt="Spring">
       <h3>Level 1 — Көктем</h3>
-      <?= $level >= 1 ? '<a href="level1_map.php" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
+      <a href="level1_map.php" class="enter-btn">Enter</a>
     </div>
 
-    <div class="level-card <?= $level >= 2 ? 'unlocked' : 'locked' ?>">
+    <!-- Level 2 – тек middle және full -->
+    <div class="level-card <?= (in_array($access, ['middle', 'full']) && $granted == 1) ? 'unlocked' : 'locked' ?>">
       <img src="../assets/images/levels/summer.png" alt="Summer">
       <h3>Level 2 — Жаз</h3>
-      <?= $level >= 2 ? '<a href="tasks.php?level=2" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
+      <?= (in_array($access, ['middle', 'full']) && $granted == 1) ? '<a href="tasks.php?level=2" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
 
-    <div class="level-card <?= $level >= 3 ? 'unlocked' : 'locked' ?>">
+    <!-- Level 3 – тек full -->
+    <div class="level-card <?= ($access === 'full' && $granted == 1) ? 'unlocked' : 'locked' ?>">
       <img src="../assets/images/levels/fall.png" alt="Fall">
       <h3>Level 3 — Күз</h3>
-      <?= $level >= 3 ? '<a href="tasks.php?level=3" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
+      <?= ($access === 'full' && $granted == 1) ? '<a href="tasks.php?level=3" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
 
-    <div class="level-card <?= $level >= 4 ? 'unlocked' : 'locked' ?>">
+    <!-- Level 4 – тек full -->
+    <div class="level-card <?= ($access === 'full' && $granted == 1) ? 'unlocked' : 'locked' ?>">
       <img src="../assets/images/levels/winter.png" alt="Winter">
       <h3>Level 4 — Қыс</h3>
-      <?= $level >= 4 ? '<a href="tasks.php?level=4" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
+      <?= ($access === 'full' && $granted == 1) ? '<a href="tasks.php?level=4" class="enter-btn">Enter</a>' : '<span class="lock-icon">🔒</span>' ?>
     </div>
   </div>
+
   <!-- Qalam Bot -->
   <div class="qalam-bot">
     <div class="bot-speech" id="bot-speech">
