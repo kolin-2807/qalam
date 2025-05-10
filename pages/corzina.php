@@ -21,7 +21,7 @@
 
       
 
-      <a class="buy-button" href="../pages/Kaspiqr.php?plan=junior">Купить</a>
+      <a class="buy-button" href="../pages/Kaspiqr.php?plan=junior">Сатып алу</a>
     </div>
 
     <!-- 🪙 Middle -->
@@ -31,7 +31,7 @@
         <p class="plan-short">Middle курстар, сертификат, жүлделер.</p>
       </div>
      
-      <a class="buy-button" href="../pages/Kaspiqr.php?plan=middle">Купить</a>
+      <a class="buy-button" href="../pages/Kaspiqr.php?plan=middle">Сатып алу</a>
     </div>
 
     <!-- 🥇 Full -->
@@ -40,14 +40,14 @@
         <img src="../assets/images/Gold.svg" alt="Full">
         <p class="plan-short">Толық қолжетімділік пен жұмысқа ұсыныс.</p>
       </div>
-      <a class="buy-button" href="../pages/Kaspiqr.php?plan=full">Купить</a>
+      <a class="buy-button" href="../pages/Kaspiqr.php?plan=full">Сатып алу</a>
     </div>
 
   </div>
 
   <!-- ✅ Купить всё! -->
   <div class="buy-all-wrapper">
-    <a class="buy-all-button" href="../pages/Kaspiqr.php?plan=full">Купить всё!</a>
+    <a class="buy-all-button" href="../pages/Kaspiqr.php?plan=full">Барлығын сатып алу</a>
   </div>
 </div>
 

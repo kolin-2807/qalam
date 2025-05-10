@@ -1,7 +1,10 @@
 <?php
 // includes/header.php
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require '../config.php'; // Базамен байланыс
 
 $email = $_SESSION['email'] ?? null;

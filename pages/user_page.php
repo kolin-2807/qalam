@@ -41,6 +41,7 @@ if (!isset($_SESSION['email'])) {
 <body>
 <h3 class="course-1">Сіздің курстағы прогресіңіз</h3>
 <div class="course-container">
+  <iframe width="400" height="200" src="https://www.youtube.com/embed/34Rp6KVGIEM?si=LLwf0I1Ba0QQfoGa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <div class="course-block">
         <h3 class="course-title">- Python -</h3>
         <div class="progress-bar">
@@ -64,23 +65,23 @@ if (!isset($_SESSION['email'])) {
   <div class="plan">
     <h3>Bronze</h3>
     <img src="../assets/images/Bronze.svg" alt="Bronze">
-    <p>Самый базовый план: <br> доступ к базовым курсам и форуму.</p>
+    <p>Бастапқы деңгейдегі жазылым:<br>Бастапқы деңгейдегі курстар</p>
   </div>
 
   <div class="plan">
     <h3>Silver</h3>
     <img src="../assets/images/Silver.svg" alt="Silver">
-    <p>План с доступом к расширенным <br> курсам и сертификатам.</p>
+    <p>Орта деңгейдегі жазылым:<br>Орта деңгейгі дейінгі<br>курстар және сертификаттар</p>
   </div>
 
   <div class="plan">
     <h3>Gold</h3>
     <img src="../assets/images/Gold.svg" alt="Gold">
-    <p>Полный доступ ко всем курсам, <br> бонусам и персональной поддержке.</p>
+    <p>Жоғарғы деңгейдегі жазылым:<br>Барлық деңгейдегі курстар<br>және артықшылықтар</p>
   </div>
 
 </div>
-
+ <a class="tolygyrak" href="../pages/Plans.php">Толығырақ</a>
 <div>
 <h3 class="preimushestva-title">Біздің ерекшеліктеріміз</h3>
 </div>
@@ -108,8 +109,6 @@ if (!isset($_SESSION['email'])) {
   </div>
 
 </div>
-
-
 
 <!-- Qalam Bot -->
 <div class="qalam-bot">

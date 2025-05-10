@@ -15,9 +15,10 @@ if (!in_array($plan, $allowed_plans)) {
     die("❌ Жоспар табылмады.");
 }
 
-// 👇 Қолжетімділік деңгейін базаға жазамыз
+// ❗ Жоспар таңдалып, сұраныс базаға жазылады
 $stmt = $conn->prepare("UPDATE users SET access_level = ? WHERE id = ?");
-$stmt->execute([$plan, $user_id]);
+$stmt->bind_param("si", $plan, $user_id);
+$stmt->execute();
 
 ?>
 
@@ -35,15 +36,16 @@ $stmt->execute([$plan, $user_id]);
       <img src="../assets/images/navigationimages/qaspibuy.jpg" width="300"><br><br>
       <p class="qr-plan">
         <?php
-          if ($plan == 'junior') echo "🎓 Junior курстар мен сертификаттар";
-          elseif ($plan == 'middle') echo "🥈 Middle курстар + жүлделер";
-          elseif ($plan == 'full') echo "👑 Толық контент пен жұмыс ұсыныс!";
+          if ($plan == 'junior') echo " Junior курстар мен сертификаттар";
+          elseif ($plan == 'middle') echo " Middle курстар + жүлделер";
+          elseif ($plan == 'full') echo " Толық контент пен жұмыс ұсыныс!";
         ?>
       </p>
-      <p style="margin-top:20px; color:#ccc;">Төлем жасалған соң админ растаған кезде контент ашылады ✅</p>
+      <p style="margin-top:20px; color:#ccc;">Төлем жасалған соң админ растаған кезде контент ашылады </p>
     </div>
-
-    <a class="back-link" href="task_page.php">← Тапсырмаларға өту</a>
   </div>
+  <div>
+  <a class="back-link" href="../pages/user_page.php">Негізгі бетке оралу</a>
+</div>
 </body>
 </html>

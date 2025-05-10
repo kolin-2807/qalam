@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-a {
-    text-decoration: none;
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: white;
+  text-decoration: none;
 }
 
 body {
@@ -147,7 +152,7 @@ body {
     border-radius: 2px;
     display: flex;                /* Ставим все в ряд */
     justify-content: space-evenly; /* Равномерно распределяем элементы */
-    margin: 0px 0px 20px 20px;
+    margin: 10px 10px 0px 10px;
     background-color: #666666;
   }
   
@@ -169,9 +174,9 @@ body {
   }  
   
   .plan p {
-    margin-bottom: 64px;
-    font-size: 12px;
-    color: #0a0a0a;                /* Серый текст описания */
+    margin-bottom: 48px;
+    font-size: 10px;
+    color: #1c1c1c;                /* текст описания */
   }
   
   .subscriptions-title {
@@ -181,6 +186,20 @@ body {
     color: #ffff;       /* Цвет текста */
     text-align: center;   /* По центру */
   }
+
+  .tolygyrak {
+  background-color: #2c2c2c;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 48px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Көлденеңінен орталау */
+  justify-content: center; /* Тігінен орталау */
+}
+
+
 /* Бөлім тақырыбы */
 .preimushestva-title {
   background-color: #ffffbb;
