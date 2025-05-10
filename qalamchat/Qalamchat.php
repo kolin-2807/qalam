@@ -55,7 +55,7 @@ $(document).ready(function () {
     const me = $("#name").val();
 
     $(".user").click(function () {
-        selectedUser = $(this).text().trim();  // ← мәтінді нақты аламыз
+        selectedUser = $(this).text().trim();
         $("#chatWith").text(selectedUser);
         $("#receiver").val(selectedUser);
         $("#all_mess").html('');
@@ -72,6 +72,14 @@ $(document).ready(function () {
         console.log("📤 Жіберіліп жатыр:", msg);
         socket.emit('send mess', msg);
         $("#message").val('');
+    });
+
+    // Обработка нажатия клавиши Enter в поле ввода сообщения
+    $("#message").keydown(function (e) {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault(); // Предотвращаем добавление новой строки
+            $("#messForm").submit(); // Отправляем форму
+        }
     });
 
     socket.on('add mess', function (data) {
