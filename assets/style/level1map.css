@@ -1,40 +1,48 @@
 body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
-    background: url('../assets/images/levelOne/Questbg.png') no-repeat center center fixed;
+    background: url('../images/LevelOne/Questbg.png') no-repeat center center fixed;
     background-size: cover;
     overflow-x: hidden;
-  }
+}
 
-  .map-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-  }
 
-  .task-point {
-    border: #000;
-    position: absolute;
-    width: 80px;
-    height: 60px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 8px;
-    color: #000;
-    text-decoration: none;
-    transition: transform 0.3s;
-  }
+.map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 
-  .task-point:hover {
-    transform: scale(1.1);
-  }
+.task-point {
+  position: absolute;
+  width: 140px;
+  height: 80px;
+  background: repeating-linear-gradient(
+    45deg,
+    #1a1a1a,
+    #1a1a1a 4px,
+    #222 4px,
+    #222 8px
+  );
+  border: 3px solid #0ff;
+  box-shadow: 0 0 6px #0ff, 0 0 3px #0ff inset;
+  color: #0ff;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px black;
+  transition: transform 0.25s, background 0.3s;
+  border-radius: 6px;
+  z-index: 5;
+}
 
-  .task-point.locked {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: 2px dashed #999;
-    cursor: default;
-  }
+.task-point:hover {
+  transform: scale(1.1);
+  background: #000;
+  color: #ff0;
+  border-color: #ff0;
+  box-shadow: 0 0 8px #ff0, 0 0 4px #ff0 inset;
+}

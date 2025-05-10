@@ -12,7 +12,7 @@
 <body>
   <div class="map-container">
     <a href="lesson_view.php?id=2RWNTfOjtsI&title=Кіріспе+сабақ" class="task-point" style="top: 6%; left: 4%;">Кіріспе</a>
-    
+    <a href="lesson_view.php?id=5OEPtU6jSbE&title=DEV+C%2B%2B+орта+орнату" class="task-point" style="top: 20%; left: 40%;">DEV C++</a>
 
 
     <a href="https://youtu.be/example3" class="task-point" style="top: 6%; left: 40%;">Java NetBeans</a>
